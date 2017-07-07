@@ -1,0 +1,112 @@
+        <!-- Marketing Icons Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Добро пожаловать!
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+
+	<div class="well" style="background-color: #ffffff;">
+            <div class="row">
+                <div class="col-md-8">
+                    <p><strong style="font-size: 15px;">Студия красоты "САФАРИ". С заботой о Вашей красоте! тел.: 8 937 714 65 56</strong></p><br>
+		<p style="font-size: 14px;">Мы - это стрижки, не требующие укладки;
+- салонное окрашивание волос по принципу "не навреди";
+- прикорневой объем "Флисинг";
+- консультации по цветотипу;
+- кератиновое выпрямление от Greymy;
+- моделирование, окрашивание, биотатуаж бровей;
+- маникюр, педикюр;
+- моделирование ногтей;
+- богатый выбор CND Shellac;
+- домашний уход и инструменты.</p>
+                </div>
+                <div class="col-md-4" align="center">
+                    <img src="<%= image_url 'safari.jpg' %>" alt="" class="img_inner fleft noresize" height="200" width="250">
+                </div>
+            </div>
+        </div>
+	
+	<div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Новости
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+
+	<% if !@is_empty_news %>
+	<div class="well" style="background-color: #fcf8e3;">
+            <div class="row">
+		<% @first_news.each do |news| %>
+		        <div class="media">
+			  <div class="media-left">
+			    <a href="#">
+			      <img class="media-object" src="<%= image_url news.image_path %>" alt="" width="200">
+			    </a>
+			  </div>
+			  <div class="media-body">
+			    <h4 class="media-heading"><%= news.title %></h4>
+			    <%= news.description.gsub(/\n/, '<br/>').html_safe %>
+			  </div>
+			</div>
+		<% end %>
+            </div>
+	    <div class="row" align="center">
+	    	<a href="<%= news_index_path %>" class="btn btn-warning">Читать больше новостей ></a>
+	    </div>
+        </div>
+	<% else %>
+	    <div class="row">
+		<div class="col-md-12">
+			<div class="panel panel-warning">
+			  <div class="panel-heading">
+			    <h3 class="panel-title">Новостей пока нет!</h3>
+			  </div>
+			  <div class="panel-body">
+			   	Но не расстраивайтесь, скоро появятся :)
+			  </div>
+			</div>
+		    </div>
+	    </div>
+	<% end %>
+
+        <!-- Features Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">Акции</h2>
+            </div>
+	    <% @first_sales.each do |sale| %>
+		<div class="col-md-12">
+			<div class="panel panel-warning">
+			  <div class="panel-heading">
+			    <h3 class="panel-title"><%= sale.title %></h3>
+			  </div>
+			  <div class="panel-body">
+			   	<%= sale.description %>
+			  </div>
+			</div>
+		    </div>
+	    <% end %>
+	    <% if !@is_empty_sales %>
+		    <div class="row" align="center">
+		    	<a href="<%= sales_path %>" class="btn btn-warning">Больше акций ></a>
+		    </div>
+	    <% end %>
+	    <% if @is_empty_sales %>
+		    <div class="col-md-12">
+			<div class="panel panel-warning">
+			  <div class="panel-heading">
+			    <h3 class="panel-title">Акций нет!</h3>
+			  </div>
+			  <div class="panel-body">
+			   	Но вы можете уточнить наличие специальных предложений по телефону - 8 937 714 65 56
+			  </div>
+			</div>
+		    </div>
+	   <% end %>
+        </div>
+        <!-- /.row -->

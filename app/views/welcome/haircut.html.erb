@@ -1,0 +1,334 @@
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">
+			Стрижки
+		</h1>
+		<ol class="breadcrumb">
+                    <li><a href="<%= index_path %>"><strong>Главная</strong></a>
+                    </li>
+		    <li>Услуги</li>
+                    <li class="active">Стрижки</li>
+                </ol>
+	</div>
+</div>
+<!-- /.row -->
+
+<div class="panel panel-default">
+	<!-- Default panel contents -->
+	<div class="panel-heading">Выберите параметры стрижки</div>
+	<div class="panel-body">
+		<select name="cut_type" name="Dest" aria-required="true" onChange="SelectedHaircut(this)">
+			<option value="-1" selected="selected">Тип стрижки</option>
+			<option value="0">Мужская стрижка(мастер салона Сафари)</option>
+			<option value="1">Женская стрижка(мастер салона Сафари)</option>
+			<option value="2">Мужская стрижка(Директор салона Сафари)</option>
+			<option value="3">Женская стрижка(Директор салона Сафари)</option>
+		</select>
+	</div>
+
+	<table class="table table-hover" id="manMasters" style="display: none">
+	<tr>
+		<th>Наименование услуги</th>
+		<th>Цена(руб.)</th>
+	</tr>
+	<tr>
+		<td colspan="3" align="center"><strong>Стрижка мужская + фен</strong></td>
+	</tr>
+	<tr>
+		<td>Модельная</td>
+		<td>250</td>
+	</tr>
+	<tr>
+		<td>Модельная повышенной сложности(площадка, ежик или удлиненная)</td>
+		<td>270</td>
+	</tr>
+	<tr>
+		<td>Простая </td>
+		<td>170-200</td>
+	</tr>
+	<tr>
+		<td colspan="3"></td>
+	</tr>
+	<tr>
+		<td>Стрижка бороды простая, стрижка усов</td>
+		<td>50</td>
+	</tr>
+	<tr>
+		<td>Стрижка бороды усложённая</td>
+		<td>100</td>
+	</tr>
+	<tr>
+		<td>Рисунок</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td align="right">простой</td>
+		<td>50</td>
+	</tr>
+	<tr>
+		<td align="right">усложённый</td>
+		<td>100</td>
+	</tr>
+	<tr>
+		<td>Наголо</td>
+		<td>100</td>
+	</tr>
+	<tr>
+		<td>Усложнение (стрижка бровей и др.)</td>
+		<td>10</td>
+	</tr>
+	<tr>
+		<td colspan="3" align="center"></td>
+	</tr>
+	<tr>
+		<td colspan="3" align="center"></td>
+	</tr>
+	<tr>
+		<td colspan="3" align="center"><strong>Мытье волос</strong></td>
+	</tr>
+	<tr>
+		<td>«Indola»</td>
+		<td>20</td>
+	</tr>
+	<tr>
+		<td>«3D Mension» 1 клик</td>
+		<td>30</td>
+	</tr>
+	<tr>
+		<td colspan="3" align="center"></td>
+	</tr>
+	<tr>
+		<td colspan="3" align="center"></td>
+	</tr>
+	<tr>
+		<td colspan="3" align="center"><strong>Камуфляж седины</strong></td>
+	</tr>
+	<tr>
+		<td>Короткие волосы</td>
+		<td>250</td>
+	</tr>
+	<tr>
+		<td>Удлиненные волосы</td>
+		<td>350-400</td>
+	</tr>
+	<tr>
+		<td>Борода</td>
+		<td>100</td>
+	</tr>
+	</table>
+	      
+	<table class="table table-hover" id="womanMasters" style="display: none">
+	<tr>
+		<th>Наименование услуги</th>
+		<th>Время</th>
+		<th>Цена(руб.)</th>
+	</tr>
+	<tr>
+		<td colspan="3" align="center"><strong>Стрижка женская + фен</strong></td>
+	</tr>
+	<tr>
+		<td>Модельная короткая</td>
+		<td>40-50 мин</td>
+		<td>300-350</td>
+	</tr>
+	<tr>
+		<td>Каре, каскадная стрижка до плеч</td>
+		<td>50 мин</td>
+		<td>350-450</td>
+	</tr>
+	<tr>
+		<td>Модельная стрижка на длинных волосах</td>
+		<td>1 час</td>
+		<td>450-550</td>
+	</tr>
+	<tr>
+		<td>Простая стрижка</td>
+		<td>30 мин.</td>
+		<td>270</td>
+	</tr>
+	<tr>
+		<td>Чёлка</td>
+		<td>10-20 мин</td>
+		<td>70-100</td>
+	</tr>
+	<tr>
+		<td>Оформление кончиков волос (длина волос свыше 40 см)</td>
+		<td>15 мин</td>
+		<td>150</td>
+	</tr>
+	<tr>
+		<td>Попрядное оформление кончиков  волос (длина волос свыше 40 см)</td>
+		<td>20 мин</td>
+		<td>200</td>
+	</tr>
+	<tr>
+		<td>Стрижка горячими ножницами</td>
+		<td>20–30 мин</td>
+		<td>400 - 650</td>
+	</tr>
+	<tr>
+		<td>Лечение горячими ножницами</td>
+		<td>1–1,5 часа</td>
+		<td>700 - 900</td>
+	</tr>
+	<tr>
+		<td>Полировка волос</td>
+		<td>0,5–1 час</td>
+		<td>300 - 500</td>
+	</tr>
+	<tr>
+		<td>Полировка волос,  совмещённая со  стрижкой волос</td>
+		<td></td>
+		<td>100 - 200</td>
+	</tr>
+	</table>
+
+	<table class="table table-hover" id="manDirector" style="display: none">
+	<tr>
+		<th>Наименование услуги</th>
+		<th>Цена(руб.)</th>
+	</tr>
+	<tr>
+		<td colspan="2" align="center"><strong>Стрижка мужская + фен</strong></td>
+	</tr>
+	<tr>
+		<td>Модельная</td>
+		<td>450</td>
+	</tr>
+	<tr>
+		<td>Модельная повышенной сложности(площадка, ежик или удлиненная)</td>
+		<td>500</td>
+	</tr>
+	<tr>
+		<td>Простая</td>
+		<td>300-400</td>
+	</tr>
+	<tr>
+		<td colspan="2"></td>
+	</tr>
+	<tr>
+		<td>Стрижка бороды простая, стрижка усов</td>
+		<td>50</td>
+	</tr>
+	<tr>
+		<td>Стрижка бороды усложённая</td>
+		<td>100</td>
+	</tr>
+	<tr>
+		<td>Рисунок</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td align="right">простой</td>
+		<td>100</td>
+	</tr>
+	<tr>
+		<td align="right">усложённый</td>
+		<td>150</td>
+	</tr>
+	<tr>
+		<td>Усложнение (стрижка бровей и др.)</td>
+		<td>10</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center"></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center"></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center"><strong>Мытье волос</strong></td>
+	</tr>
+	<tr>
+		<td>«3D Mension» 1 клик</td>
+		<td>30</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center"></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center"></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center"><strong>Камуфляж седины</strong></td>
+	</tr>
+	<tr>
+		<td>Короткие волосы</td>
+		<td>350</td>
+	</tr>
+	<tr>
+		<td>Удлиненные волосы</td>
+		<td>500</td>
+	</tr>
+	<tr>
+		<td>Борода</td>
+		<td>150</td>
+	</tr>
+	</table>
+
+	<table class="table table-hover" id="womanDirector" style="display: none">
+	<tr>
+		<th>Наименование услуги</th>
+		<th>Время</th>
+		<th>Цена(руб.)</th>
+	</tr>
+	<tr>
+		<td colspan="3" align="center"><strong>Стрижка женская + фен</strong></td>
+	</tr>
+	<tr>
+		<td>Модельная короткая</td>
+		<td>40-50 мин</td>
+		<td>550</td>
+	</tr>
+	<tr>
+		<td>Каре, каскадная стрижка до плеч </td>
+		<td>50 мин</td>
+		<td>650</td>
+	</tr>
+	<tr>
+		<td>Модельная стрижка на длинных волосах</td>
+		<td>1 час</td>
+		<td>750</td>
+	</tr>
+	<tr>
+		<td>Простая стрижка</td>
+		<td>30 мин.</td>
+		<td>270</td>
+	</tr>
+	<tr>
+		<td>Чёлка</td>
+		<td>10-20 мин</td>
+		<td>150</td>
+	</tr>
+	<tr>
+		<td>Оформление кончиков волос (длина волос свыше 40 см)</td>
+		<td>15 мин</td>
+		<td>300</td>
+	</tr>
+	<tr>
+		<td>Попрядное оформление кончиков  волос (длина волос свыше 40 см)</td>
+		<td>20 мин</td>
+		<td>450</td>
+	</tr>
+	<tr>
+		<td>Стрижка горячими ножницами</td>
+		<td>20–30 мин</td>
+		<td>750</td>
+	</tr>
+	<tr>
+		<td>Лечение горячими ножницами</td>
+		<td>1–1,5 часа</td>
+		<td>900</td>
+	</tr>
+	<tr>
+		<td>Полировка волос</td>
+		<td>0,5–1 час</td>
+		<td>600</td>
+	</tr>
+	<tr>
+		<td>Полировка волос,  совмещённая со  стрижкой волос</td>
+		<td></td>
+		<td>200</td>
+	</tr>
+	</table>
+</div>

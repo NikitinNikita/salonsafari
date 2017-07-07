@@ -1,0 +1,246 @@
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">
+			Укладка волос
+		</h1>
+		<ol class="breadcrumb">
+                    <li><a href="<%= index_path %>"><strong>Главная</strong></a>
+                    </li>
+		    <li>Услуги</li>
+                    <li class="active">Укладка волос</li>
+                </ol>
+	</div>
+</div>
+<!-- /.row -->
+
+<div class="panel panel-default">
+	<!-- Default panel contents -->
+	<div class="panel-heading">Цены на услуги укладки волос</div>
+	<div class="panel-body">
+		<select name="style_type" aria-required="true" onChange="SelectedHairstyling(this)">
+			<option value="0" selected="selected">Мастер салона Сафари</option>
+			<option value="1">Директор салона Сафари</option>
+		</select>
+	</div>
+
+	<table class="table table-hover" id="mastersHairstyling">
+			<tr>
+				<th>Наименование услуги</th>
+				<th>Время</th>
+				<th>Цена(руб.)</th>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"><strong>Сушка феном после окрашивания и других процедур</strong></td>
+			</tr>
+			<tr>
+				<td>Короткие волосы</td>
+				<td>10 мин</td>
+				<td>100</td>
+			</tr>
+			<tr>
+				<td>Удлинённые волосы</td>
+				<td>15 мин</td>
+				<td>200</td>
+			</tr>
+			<tr>
+				<td>Длинные волосы</td>
+				<td>20 мин</td>
+				<td>250</td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"></td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"></td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"><strong>Укладка феном с препаратами</strong></td>
+			</tr>
+			<tr>
+				<td>Короткие волосы</td>
+				<td>20-30 мин</td>
+				<td>300-400</td>
+			</tr>
+			<tr>
+				<td>Удлинённые волосы</td>
+				<td>40 мин</td>
+				<td>400-500</td>
+			</tr>
+			<tr>
+				<td>Длинные волосы</td>
+				<td>1 час</td>
+				<td>450-550</td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"></td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"></td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"><strong>Локоны (щипцы, утюги или бигуди)</strong></td>
+			</tr>
+			<tr>
+				<td>Короткие волосы</td>
+				<td>30 мин</td>
+				<td>300</td>
+			</tr>
+			<tr>
+				<td>Удлинённые волосы</td>
+				<td>40 мин</td>
+				<td>450</td>
+			</tr>
+			<tr>
+				<td>Длинные волосы</td>
+				<td>1 час</td>
+				<td>600</td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"></td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"></td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"><strong>Прическа праздничная</strong></td>
+			</tr>
+			<tr>
+				<td>Удлинённые волосы</td>
+				<td>1 час</td>
+				<td>700</td>
+			</tr>
+			<tr>
+				<td>Длинные волосы</td>
+				<td>1,5 часа</td>
+				<td>1000</td>
+			</tr>
+			<tr>
+				<td>Прическа усложненная(прическа невесты)</td>
+				<td>2 часа</td>
+				<td>1500</td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"></td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"></td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"><strong>Плетение кос</strong></td>
+			</tr>
+			<tr>
+				<td>1 сложности</td>
+				<td>20 мин</td>
+				<td>250</td>
+			</tr>
+			<tr>
+				<td>2 сложности</td>
+				<td>30 мин</td>
+				<td>350</td>
+			</tr>
+			<tr>
+				<td>3 сложности</td>
+				<td>40 мин</td>
+				<td>450</td>
+			</tr>
+			<tr>
+				<td>Прическа с вплетениемискусственных материалов</td>
+				<td>1 час</td>
+				<td>500-850</td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"></td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"></td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"><strong>Украшения для волос</strong></td>
+			</tr>
+			<tr>
+				<td>Стразы на леске</td>
+				<td></td>
+				<td>220-280</td>
+			</tr>
+			<tr>
+				<td>Бусины для афропричёсок1 шт. </td>
+				<td></td>
+				<td>30</td>
+			</tr>
+		</table>
+
+		<table class="table table-hover" id="directorHairstyling" style="display:none;">
+			<tr>
+				<th>Наименование услуги</th>
+				<th>Время</th>
+				<th>Цена(руб.)</th>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"><strong>Сушка феном после окрашивания и других процедур</strong></td>
+			</tr>
+			<tr>
+				<td>Короткие волосы</td>
+				<td>10 мин</td>
+				<td>100</td>
+			</tr>
+			<tr>
+				<td>Удлинённые волосы</td>
+				<td>15 мин</td>
+				<td>200</td>
+			</tr>
+			<tr>
+				<td>Длинные волосы</td>
+				<td>20 мин</td>
+				<td>250</td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"></td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"></td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"><strong>Укладка феном с препаратами</strong></td>
+			</tr>
+			<tr>
+				<td>Короткие волосы</td>
+				<td>20-30 мин</td>
+				<td>500</td>
+			</tr>
+			<tr>
+				<td>Удлинённые волосы</td>
+				<td>40 мин</td>
+				<td>700</td>
+			</tr>
+			<tr>
+				<td>Длинные волосы</td>
+				<td>1 час</td>
+				<td>800</td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"></td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"></td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"><strong>Локоны (щипцы, утюги или бигуди)</strong></td>
+			</tr>
+			<tr>
+				<td>Короткие волосы</td>
+				<td>30 мин</td>
+				<td>500</td>
+			</tr>
+			<tr>
+				<td>Удлинённые волосы</td>
+				<td>40 мин</td>
+				<td>700</td>
+			</tr>
+			<tr>
+				<td>Длинные волосы</td>
+				<td>1 час</td>
+				<td>800</td>
+			</tr>
+		</table>
+	
+</div>

@@ -1,0 +1,83 @@
+<% if session[:user_id] %>
+	<div class="row">
+		<div class="col-lg-12">
+			<h1 class="page-header">
+				Новости
+			</h1>
+			<ol class="breadcrumb">
+		            <li><a href="<%= index_path %>"><strong>Главная</strong></a>
+		            </li>
+		            <li class="active">Новости</li>
+		        </ol>
+		</div>
+	</div>
+	<!-- /.row -->
+
+	<div class="panel panel-default">
+		<!-- Default panel contents -->
+		<div class="panel-heading">Текущие новости</div>
+		<div class="panel-body">
+			<a href="<%= new_news_path %>" class="btn btn-warning">Добавить новость</a>
+		</div>
+
+		<table class="table table-hover">
+			<% @news.each do |news| %>
+			      <tr>
+				<td><%= news.title %></td>
+				<td><%= news.description.gsub(/\n/, '<br/>').html_safe %></td>
+				<td><%= link_to 'Удалить', news, method: :delete, data: { confirm: 'Вы уверены, что хотите удалить эту запись?' } %></td>
+			      </tr>
+			<% end %>
+		</table>
+		<div align="center"><%= will_paginate @comments %></div>
+	</div>
+<% else %>	
+		<div class="row">
+		    <div class="col-lg-12">
+		        <h1 class="page-header">Новости
+		        </h1>
+		        <ol class="breadcrumb">
+		            <li><a href="<%= index_path %>">Главная</a>
+		            </li>
+		            <li class="active">Новости</li>
+		        </ol>
+		    </div>
+		</div>
+		<!-- /.row -->
+
+		<% @news.each do |news| %>
+		<div class="alert alert-warning" id="<%= news.id %>" role="alert">Запись добавлена <%= news.created_at %></div>
+		<!-- Blog Post Row -->
+		<div class="row">
+		    <div class="col-md-5">
+		        <a>
+		            <img class="img-responsive img-hover" src="<%= image_url news.image_path %>" alt="">
+		        </a>
+		    </div>
+		    <div class="col-md-6">
+		        <h3>
+		            <a><%= news.title %></a>
+		        </h3>
+		        <p>by <a>Elena Nikitina</a>
+		        </p>
+		        <p><%= news.description.gsub(/\n/, '<br/>').html_safe %></p>
+		        <a id="<%= news.id %>" onclick="show_hide_ref(this.id)" class="btn btn-warning" style="margin-bottom: 10px;">Получить ссылку</a>
+			<br>
+			<input type="text" class="form-control" id="input<%= news.id %>" style="display: none" value="<%= request.original_url %>#<%= news.id %>">
+		    </div>
+		</div>
+		<!-- /.row -->
+
+		<hr>
+	<% end %>
+	<div align="center"><%= will_paginate @comments %></div>
+<% end %>
+<% if @news.count == 0 and !session[:user_id] %>
+	<div class="alert alert-warning" role="alert">Новостей пока нет! Но не расстраивайтесь, скоро появятся :)</div>
+<% end %>
+
+<script>
+function show_hide_ref(id){
+	$('#input'+id).toggle();
+}
+</script>

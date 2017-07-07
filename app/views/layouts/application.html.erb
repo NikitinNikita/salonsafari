@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Сафари</title>
+    <meta charset="utf-8">
+    <meta name="yandex-verification" content="1488db92363d5f09" />
+    <meta name="keywords" content="Салон-парикмахерская, Салон красоты, Сафари, Волжский, Салон Сафари">
+    <link rel="shortcut icon" href="http://www.iconj.com/icon.php?pid=hkzujla2x6" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= stylesheet_link_tag    "bootstrap.min.css", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", 'data-turbolinks-eval' => false %>
+    <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js', 'data-turbolinks-eval' => false %>
+    <%= javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'data-turbolinks-eval' => false %>
+    <%= csrf_meta_tags %>
+
+    <!-- Custom Fonts 
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+	a:hover {
+	    color: #323045; /* Цвет ссылки при наведении на нее курсора мыши */  
+	    text-decoration: underline; /* Добавляем подчеркивание */
+	    background: none; /* Цвет фона */
+	  }
+    </style>
+    	<script>
+
+	function SelectedHaircut(a) {
+		var label = a.value;
+		if (label==0) {
+			document.getElementById("manMasters").style.display='';
+			document.getElementById("womanMasters").style.display='none';
+			document.getElementById("manDirector").style.display='none';
+			document.getElementById("womanDirector").style.display='none'; 
+		} else if (label==1) {
+			document.getElementById("manMasters").style.display='none';
+			document.getElementById("womanMasters").style.display='';
+			document.getElementById("manDirector").style.display='none';
+			document.getElementById("womanDirector").style.display='none';
+		} else if (label==2) {
+			document.getElementById("manMasters").style.display='none';
+			document.getElementById("womanMasters").style.display='none';
+			document.getElementById("manDirector").style.display='';
+			document.getElementById("womanDirector").style.display='none';
+		} else if (label==3) {
+			document.getElementById("manMasters").style.display='none';
+			document.getElementById("womanMasters").style.display='none';
+			document.getElementById("manDirector").style.display='none';
+			document.getElementById("womanDirector").style.display='';
+		} else if (label==-1) {
+			document.getElementById("manMasters").style.display='none';
+			document.getElementById("womanMasters").style.display='none';
+			document.getElementById("manDirector").style.display='none';
+			document.getElementById("womanDirector").style.display='none';
+		}
+	}
+
+	function SelectedHaircoloring(a) {
+		var label = a.value;
+		if (label==0) {
+			document.getElementById("mastersHaircoloring").style.display='';
+			document.getElementById("directorHaircoloring").style.display='none';
+		} else if (label==1) {
+			document.getElementById("mastersHaircoloring").style.display='none';
+			document.getElementById("directorHaircoloring").style.display='';
+		}
+	}
+	
+	function SelectedHairstyling(a) {
+		var label = a.value;
+		if (label==0) {
+			document.getElementById("mastersHairstyling").style.display='';
+			document.getElementById("directorHairstyling").style.display='none';
+		} else if (label==1) {
+			document.getElementById("mastersHairstyling").style.display='none';
+			document.getElementById("directorHairstyling").style.display='';
+		}
+	}
+
+	function SelectedChemicalperm(a) {
+		var label = a.value;
+		if (label==0) {
+			document.getElementById("mastersChemicalperm").style.display='';
+			document.getElementById("directorChemicalperm").style.display='none';
+		} else if (label==1) {
+			document.getElementById("mastersChemicalperm").style.display='none';
+			document.getElementById("directorChemicalperm").style.display='';
+		}
+	}
+	</script>
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="<%= index_path %>">Главная</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="<%= photos_path %>">Фотогалерея</a>
+                    </li>
+                    <li>
+                        <a href="<%= contacts_path %>">Контакты</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Услуги <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="<%= service_haircut_path %>">Стрижки</a>
+                            </li>
+                            <li>
+                                <a href="<%= service_haircare_path %>">Уход за волосами</a>
+                            </li>
+                            <li>
+                                <a href="<%= service_hairstyling_path %>">Укладка волос</a>
+                            </li>
+                            <li>
+                                <a href="<%= service_chemicalperm_path %>">Хим. завивка и долговременная укладка</a>
+                            </li>
+                            <li>
+                                <a href="<%= service_haircoloring_path %>">Окрашивание волос</a>
+                            </li>
+			    <li>
+                                <a href="<%= service_affro_path %>">Афропрически</a>
+                            </li>
+			    <li>
+                                <a href="<%= service_hairextension_path %>">Наращивание волос</a>
+                            </li>
+			    <li>
+                                <a href="<%= service_manicure_path %>">Ногтевой сервис</a>
+                            </li>
+			    <li>
+                                <a href="<%= service_makeup_path %>">Brow-bar, моделирование взгляда, макияж</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="<%= comments_path %>">Отзывы</a>
+                    </li>
+                    <li>
+                        <a href="<%= vacancies_path %>">Вакансии</a>
+                    </li>
+		    <li><a href="<%= news_index_path %>">Новости</a></li>
+		    <li><a href="<%= sales_path %>">Акции</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Header Carousel -->
+    <header id="myCarousel" class="carousel slide">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="fill"></div>
+                <div class="carousel-caption">
+                    <h2></h2>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+
+    	<%= yield %>
+	
+	<hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12" align="center">
+		    <% if session[:user_id] %>
+			<%= button_to 'Выйти', logout_path, method: :delete, class: 'btn btn-warning', :style => 'width: 380px; height: 50px'%>
+		    <% end %>
+                    <p>Copyright &copy; Студия красоты "Сафари" 2016</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">
+			Галерея
+		</h1>
+	</div>
+</div>
+
+<% if session[:user_id] %>
+<div class="panel panel-default">
+	<!-- Default panel contents -->
+	<div class="panel-heading">Добавленные папки:</div>
+	<div class="panel-body">
+		
+	<a href="<%= new_photo_path %>" class="btn btn-warning">Добавить новую папку</a>
+	</div>
+		<table class="table table-hover">
+		  <% @photos.each do |photo| %>
+		      <tr>
+			<td><%= photo.name %></td>
+			<td><%= photo.description %></td>
+		        <td><%= link_to 'Добавить фото', add_photo_to_folder_path(photo.id) %></td>
+			<td><%= link_to 'Удалить фото из папки', delete_photo_from_folder_path(photo.id) %></td>
+			<td><%= link_to 'Удалить', photo, method: :delete, data: { confirm: 'Вы уверены, что хотите удалить эту запись?' } %></td>
+		      </tr>
+		    <% end %>
+		</table>
+</div>
+<% else %>
+	<div class="row">
+	<% @photos.each do |photo| %>
+		<div class="col-sm-6 col-md-4">
+		    <div class="thumbnail">
+		      <%= link_to image_tag(photo.name + "/" + photo.cover), photo %>
+		      <div class="caption">
+			<h3><%= photo.name %></h3>
+			<p><%= photo.description %></p>
+			<p><%= link_to 'Открыть', photo, :class => "btn btn-warning" %></p>
+		      </div>
+		    </div>
+		  </div>
+	<% end %>
+	</div>
+
+<% end %>
+<% if @photos.count == 0 %>
+	<div class="panel panel-warning">
+		<div class="panel-heading">Фотогалерея пока пуста</div>
+		<div class="panel-body">
+		    <p>Но это не значит, что нам нечего Вам показать. Вы можете найти фотографии в наших группах в социальных сетях:</p>
+		    <p>
+			<a href="http://vk.com/salon_safari" target="_blank">
+				<img src="<%= image_url 'vk.png' %>" height="40" width="40"/>
+			</a>
+			<a href="https://www.instagram.com/salonsafari/" target="_blank">
+				<img src="<%= image_url 'instagram.png' %>" height="40" width="40"/>
+			</a>
+			<a href="https://ok.ru/group/50839877320795" target="_blank">
+				<img src="<%= image_url 'ok.png' %>" height="40" width="40"/>
+			</a>
+		    </p>
+		</div>
+	</div>
+<% end %>

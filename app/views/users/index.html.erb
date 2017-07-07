@@ -1,0 +1,32 @@
+<% if session[:is_success] == true %>
+		<section id="content">
+		  <div class="container" style="background: url(<%= image_url 'box40.png' %>)">
+		    <div class="row" style="margin-left: 20px; margin-bottom: 20px;">
+			<h3 style="font-size: 2em;" align="center">Пользователи</h3>
+			<table>
+			  <thead>
+			    <tr>
+			      <th>Имя</th>
+			      <th></th>
+			      <th></th>
+			    </tr>
+			  </thead>
+
+			  <tbody>
+			    <% @users.each do |user| %>
+			      <tr>
+				<td><%= user.name %></td>
+				<td><%= link_to 'Изменить', edit_user_path(user) %></td>
+				<td><%= link_to 'Удалить', user, method: :delete, data: { confirm: 'Вы уверены что хотите удалить эту запись?' } %></td>
+			      </tr>
+			    <% end %>
+			  </tbody>
+			</table>
+
+			<br>
+
+			<a href="<%= new_user_path %>" class="btn">Добавить пользователя</a>
+		    </div>
+		  </div>
+		</section>
+<% end %>

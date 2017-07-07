@@ -1,0 +1,33 @@
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">
+			Удаление фотографий из папки
+		</h1>
+		<ol class="breadcrumb">
+                    <li><a href="<%= index_path %>"><strong>Главная</strong></a>
+                    </li>
+		    <li><a href="<%= photos_path %>"><strong>Фотогалерея</strong></a>
+                    </li>
+                    <li class="active">Удаление фотографий</li>
+                </ol>
+	</div>
+</div>
+<!-- /.row -->
+
+<div class="panel panel-default">
+	<!-- Default panel contents -->
+	<div class="panel-heading">Удалите необходимые фотографии:</div>
+	<div class="panel-body">
+		<table class="table">
+			<% i = 0 %>
+			    <% @list_of_photo.each do |photo| %>
+			      <tr>
+				<td><img src="<%= image_url(@photo_name + '/' +  photo) %>" alt="" width="200" height="200"></td>
+				<td><%= photo %></td>
+				<td><%= link_to 'Удалить фото', delete_photo_from_folder_post_path(i), :class => "btn" %></td>
+			      </tr>
+			      <% i = i + 1 %>
+			    <% end %>
+		</table>
+	</div>
+</div>
